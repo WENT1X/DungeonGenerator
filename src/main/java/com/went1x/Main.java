@@ -14,21 +14,17 @@ public class Main {
     public static void main(String[] args) {
         try {
             Gson gson = new Gson();
-            // Загрузка конфигурации сложности
             InputStreamReader difficultyReader = new InputStreamReader(
                     Main.class.getClassLoader().getResourceAsStream("configs/difficulty.json"));
             DifficultyConfig difficultyConfig = gson.fromJson(difficultyReader, DifficultyConfig.class);
 
-            // Загрузка конфигурации комнат
             InputStreamReader roomsReader = new InputStreamReader(
                     Main.class.getClassLoader().getResourceAsStream("configs/rooms.json"));
             List<RoomConfig> roomConfigs = gson.fromJson(roomsReader, new TypeToken<List<RoomConfig>>(){}.getType());
 
-            // Генерация подземелья
             DungeonGenerator generator = new DungeonGenerator(roomConfigs, difficultyConfig);
             DungeonLayout layout = generator.generate();
 
-            // Вывод результата
             System.out.println("Generated Dungeon:");
             for (RoomInstance room : layout.getRooms()) {
                 System.out.printf("Room ID: %s, Type: %s, Position: (%d, %d, %d)%n",
