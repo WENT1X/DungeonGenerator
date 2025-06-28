@@ -14,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.*;
 public class DungeonGeneratorTest {
     @Test
     public void testDungeonGeneration() {
-        // Подготовка тестовых данных
         List<RoomConfig> roomConfigs = Arrays.asList(
                 new RoomConfig("enter_1", "ENTER", 10, new int[]{16, 8, 16}),
                 new RoomConfig("corridor_1", "CORRIDOR", 50, new int[]{8, 4, 8}),
@@ -29,11 +28,9 @@ public class DungeonGeneratorTest {
         limits.put("TREASURE", 3);
         config.setElementLimits(limits);
 
-        // Генерация
         DungeonGenerator generator = new DungeonGenerator(roomConfigs, config);
         DungeonLayout layout = generator.generate();
 
-        // Проверки
         assertNotNull(layout);
         assertTrue(layout.getRoomCount() <= config.getMaxTotalRooms());
         assertEquals(2, layout.getRoomCounts().getOrDefault("ENTER", 0));
