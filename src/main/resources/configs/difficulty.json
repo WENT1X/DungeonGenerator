@@ -1,0 +1,10 @@
+{
+  "difficulty_name": "easy",
+  "max_total_rooms": 50,
+  "min_enter_room_distance": 20,
+  "element_limits": {
+    "ENTER": 2,
+    "CORRIDOR": 25,
+    "TREASURE": 5
+  }
+}
