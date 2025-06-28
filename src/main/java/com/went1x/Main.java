@@ -1,8 +1,4 @@
 package com.went1x;
-
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-
 import com.went1x.model.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
